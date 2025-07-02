@@ -1062,6 +1062,108 @@
                         
                     </div>
                 </div>
+                
+                <!-- FAQ content with light background -->
+                <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+                    <div class="pb-12 md:pb-20">
+                        <p class="h2 max-w-3xl mx-auto font-playfair-display mb-3">
+                            For Individual
+                            <span class="text-slate-500">
+                                PMs & Job Seekers
+                            </span>
+                        </p>
+
+                        <!-- Faqs -->
+                        <ul class="max-w-3xl mx-auto divide-y divide-slate-200">
+                            <li x-data="{ expanded: true }">
+                                <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
+                                    <span>Who are your services for?</span>
+                                    <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
+                                        <path d="m3 5 5 6 5-6z" />
+                                    </svg>
+                                </button>
+                                <div
+                                    x-ref="item"
+                                    class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out"
+                                    :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'"
+                                >
+                                    <div class="pb-5">
+                                        <p class="mb-3">I work with both individuals and organizations:</p>
+                                        <p class="mb-3"><strong>Companies:</strong> Startups, tech firms, and any org with product teams that want to level up workflows, improve collaboration, or train employees in a practical and customized way.</p>
+                                        <p><strong>Individuals:</strong> Aspiring PMs, early-career (0–2 years), experienced PMs seeking to grow or move into leadership.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li x-data="{ expanded: false }">
+                                <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
+                                    <span>We're in a niche market – can your workshop be tailored to our specific needs?</span>
+                                    <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
+                                        <path d="m3 5 5 6 5-6z" />
+                                    </svg>
+                                </button>
+                                <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
+                                    <p class="pb-5">
+                                        Absolutely. All workshops and talks are tailored to your product domain – with relevant examples, exercises, and real conversations that address your actual challenges.
+                                    </p>
+                                </div>
+                            </li>
+                            <li x-data="{ expanded: false }">
+                                <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
+                                    <span>Do you work with early-stage startups or small teams?</span>
+                                    <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
+                                        <path d="m3 5 5 6 5-6z" />
+                                    </svg>
+                                </button>
+                                <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
+                                    <p class="pb-5">
+                                        Yes! I've helped many young startups build product foundations, work processes, and initial product leadership.
+                                    </p>
+                                </div>
+                            </li>
+                            <li x-data="{ expanded: false }">
+                                <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
+                                    <span>Can we book a single workshop or talk, without an ongoing program?</span>
+                                    <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
+                                        <path d="m3 5 5 6 5-6z" />
+                                    </svg>
+                                </button>
+                                <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
+                                    <p class="pb-5">
+                                        Of course – any service can be booked as a one-time engagement.
+                                    </p>
+                                </div>
+                            </li>
+                            <li x-data="{ expanded: false }">
+                                <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
+                                    <span>Do you offer remote services (Zoom, etc.)?</span>
+                                    <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
+                                        <path d="m3 5 5 6 5-6z" />
+                                    </svg>
+                                </button>
+                                <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
+                                    <p class="pb-5">
+                                        Yes – all services can be delivered remotely: talks, workshops, individual or team coaching.
+                                    </p>
+                                </div>
+                            </li>
+                            <li x-data="{ expanded: false }">
+                                <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
+                                    <span>Can you design a custom workshop or enrichment session for our PM team?</span>
+                                    <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
+                                        <path d="m3 5 5 6 5-6z" />
+                                    </svg>
+                                </button>
+                                <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
+                                    <p class="pb-5">
+                                        Definitely. Let's start with a short call and find the topic and format that suits your goals, context, and team maturity.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
             </section>
             
             <!-- Cta -->
