@@ -1078,7 +1078,7 @@
                         <ul class="max-w-3xl mx-auto divide-y divide-slate-200">
                             <li x-data="{ expanded: true }">
                                 <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
-                                    <span>Who are your services for?</span>
+                                    <span>What's the difference between coaching and ongoing mentoring?</span>
                                     <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
                                         <path d="m3 5 5 6 5-6z" />
                                     </svg>
@@ -1088,75 +1088,125 @@
                                     class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out"
                                     :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'"
                                 >
-                                    <div class="pb-5">
-                                        <p class="mb-3">I work with both individuals and organizations:</p>
-                                        <p class="mb-3"><strong>Companies:</strong> Startups, tech firms, and any org with product teams that want to level up workflows, improve collaboration, or train employees in a practical and customized way.</p>
-                                        <p><strong>Individuals:</strong> Aspiring PMs, early-career (0–2 years), experienced PMs seeking to grow or move into leadership.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li x-data="{ expanded: false }">
-                                <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
-                                    <span>We're in a niche market – can your workshop be tailored to our specific needs?</span>
-                                    <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
-                                        <path d="m3 5 5 6 5-6z" />
-                                    </svg>
-                                </button>
-                                <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
                                     <p class="pb-5">
-                                        Absolutely. All workshops and talks are tailored to your product domain – with relevant examples, exercises, and real conversations that address your actual challenges.
+                                        Coaching is goal-focused and time-bound – like prepping for interviews or stepping into a new role. Mentoring is ongoing support where we tackle real-life challenges together, as they come up in your day-to-day work. Think of me as your silent partner helping you shine.
                                     </p>
                                 </div>
                             </li>
                             <li x-data="{ expanded: false }">
                                 <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
-                                    <span>Do you work with early-stage startups or small teams?</span>
+                                    <span>Do you offer one-off consultations?</span>
                                     <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
                                         <path d="m3 5 5 6 5-6z" />
                                     </svg>
                                 </button>
                                 <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
                                     <p class="pb-5">
-                                        Yes! I've helped many young startups build product foundations, work processes, and initial product leadership.
+                                        Yes! I offer short-term, focused consultations when you need clarity or feedback on something specific.
                                     </p>
                                 </div>
                             </li>
                             <li x-data="{ expanded: false }">
                                 <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
-                                    <span>Can we book a single workshop or talk, without an ongoing program?</span>
+                                    <span>Can the coaching be private or anonymous?</span>
                                     <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
                                         <path d="m3 5 5 6 5-6z" />
                                     </svg>
                                 </button>
                                 <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
                                     <p class="pb-5">
-                                        Of course – any service can be booked as a one-time engagement.
+                                        Absolutely. I fully respect confidentiality and can work without any public exposure if you prefer.
                                     </p>
                                 </div>
                             </li>
                             <li x-data="{ expanded: false }">
                                 <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
-                                    <span>Do you offer remote services (Zoom, etc.)?</span>
+                                    <span>I'm thinking of job searching but still working – how do I do it discreetly?</span>
                                     <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
                                         <path d="m3 5 5 6 5-6z" />
                                     </svg>
                                 </button>
                                 <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
                                     <p class="pb-5">
-                                        Yes – all services can be delivered remotely: talks, workshops, individual or team coaching.
+                                        We'll start by examining why you're considering a change. Sometimes we can reshape your current role to meet your needs. If you decide to search, we'll craft a low-profile plan with steps you can take quietly and strategically.
                                     </p>
                                 </div>
                             </li>
                             <li x-data="{ expanded: false }">
                                 <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
-                                    <span>Can you design a custom workshop or enrichment session for our PM team?</span>
+                                    <span>I want to shift direction or go more senior – how do I reframe my story?</span>
                                     <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
                                         <path d="m3 5 5 6 5-6z" />
                                     </svg>
                                 </button>
                                 <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
                                     <p class="pb-5">
-                                        Definitely. Let's start with a short call and find the topic and format that suits your goals, context, and team maturity.
+                                        We'll clarify your goals first, then shape your career story to highlight the strengths, achievements, and patterns that align with where you want to go – even if it's different from your past roles. You'll come out with a compelling narrative that feels true and works.
+                                    </p>
+                                </div>
+                            </li>
+                            <li x-data="{ expanded: false }">
+                                <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
+                                    <span>I keep failing the take-home task in interviews – can you help with just that stage?</span>
+                                    <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
+                                        <path d="m3 5 5 6 5-6z" />
+                                    </svg>
+                                </button>
+                                <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
+                                    <p class="pb-5">
+                                        Yes. I offer focused support for take-home assignments – from understanding the brief to refining your answers, improving the structure and narrative, rehearsing your delivery, and getting real feedback. Many PMs have nailed this stage after working with me.
+                                    </p>
+                                </div>
+                            </li>
+                            <li x-data="{ expanded: false }">
+                                <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
+                                    <span>I've watched lots of sample answers for product sense/execution interviews – is there anything more I can do?</span>
+                                    <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
+                                        <path d="m3 5 5 6 5-6z" />
+                                    </svg>
+                                </button>
+                                <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
+                                    <p class="pb-5">
+                                        Absolutely. Frameworks like CIRCLES, STAR, or GIST can help, but the key is finding one that feels natural to you. We'll pick the best fit, customize your approach, and practice until you feel confident and compelling.
+                                    </p>
+                                </div>
+                            </li>
+                            <li x-data="{ expanded: false }">
+                                <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
+                                    <span>I feel confident – until the final interview with the CEO or VP. Can you help?</span>
+                                    <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
+                                        <path d="m3 5 5 6 5-6z" />
+                                    </svg>
+                                </button>
+                                <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
+                                    <p class="pb-5">
+                                        Yes. We'll work on what senior leaders really care about – big-picture thinking, business language, executive presence. We'll translate your experience into their language, and rehearse until you feel ready.
+                                    </p>
+                                </div>
+                            </li>
+                            <li x-data="{ expanded: false }">
+                                <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
+                                    <span>I'm great at interviews – until I have to present. Then I freeze. Can you help?</span>
+                                    <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
+                                        <path d="m3 5 5 6 5-6z" />
+                                    </svg>
+                                </button>
+                                <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
+                                    <p class="pb-5">
+                                        Yes! We'll build your presentation, practice the delivery, and boost your confidence. I give feedback on slides, storytelling, body language, and tone – so you can own the room.
+                                    </p>
+                                </div>
+                            </li>
+                            <li x-data="{ expanded: false }">
+                                <button class="h4 font-playfair-display flex items-center justify-between w-full text-left py-5" @click="expanded = !expanded" :aria-expanded="expanded">
+                                    <span>I'm not sure what service is right for me – where do I start?</span>
+                                    <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 ml-8" :class="{'rotate-180': expanded}" viewBox="0 0 16 16">
+                                        <path d="m3 5 5 6 5-6z" />
+                                    </svg>
+                                </button>
+                                <div x-ref="item" class="text-slate-500 overflow-hidden transition-all duration-300 ease-in-out" :style="expanded ? 'max-height: ' + $refs.item.scrollHeight + 'px; opacity: 1' : 'max-height: 0; opacity: 0'">
+                                    <p class="pb-5">
+                                        Just reach out. A short conversation is all we need to find the best fit for you.
                                     </p>
                                 </div>
                             </li>
