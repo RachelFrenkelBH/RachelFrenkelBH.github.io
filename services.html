@@ -133,15 +133,27 @@
 
             <!-- Clients -->
             <section>
-                <div class="max-w-6xl mx-auto px-4 sm:px-6 mt-8">
+                <div id="service-links" class="max-w-6xl mx-auto px-4 sm:px-6 mt-8">
                     <!-- Tabs -->
-                    <div style="color: #90a4b4; text-align: center; padding: 40px 0; border-top: 1px solid #eef1f4; border-bottom: 1px solid #eef1f4;">
-                        <span style="margin: 0 30px; font-size: 24px; font-weight: bold">Startup Founders</span>
-                        <span style="margin: 0 30px; font-size: 24px; font-weight: bold">Companies</span>
-                        <span style="margin: 0 30px; font-size: 24px; font-weight: bold">PM Teams</span>
-                        <span style="margin: 0 30px; font-size: 24px; font-weight: bold">Individuals</span>
-                        <span style="margin: 0 30px; font-size: 24px; font-weight: bold">Freelance</span>
+                    <div style="font-weight: bold; color: #90a4b4; text-align: center; padding: 40px 0; border-top: 1px solid #eef1f4; border-bottom: 1px solid #eef1f4;">
+                        <a href="#service-num-1" style="margin: 0 30px; font-size: 20px" class="hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600">Startup Founders</a>
+                        <a href="#service-num-2" style="margin: 0 30px; font-size: 20px" class="hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600">Companies</a>
+                        <a href="#service-num-3" style="margin: 0 30px; font-size: 20px" class="hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600">PM Teams</a>
+                        <a href="#service-num-4" style="margin: 0 30px; font-size: 20px" class="hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600">Individuals</a>
+                        <a href="#service-num-5" style="margin: 0 30px; font-size: 20px" class="hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600">Freelance</a>
+                        <a href="#service-num-6" style="margin: 0 30px; font-size: 20px" class="hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-600">Workshops</a>
                     </div>
+                    <style>
+                        html {
+                            scroll-behavior: smooth;
+                            scroll-padding-top: 60px;
+                        }
+                        @media (max-width: 600px) {
+                            #service-links a {
+                                display: block;
+                            }
+                        }
+                    </style>
                 </div>
             </section>
 
@@ -158,7 +170,7 @@
                         <div class="max-w-xl mx-auto md:max-w-none space-y-20">
 
                             <!-- 1st Service -->
-                            <div class="flex flex-col-reverse md:flex-row-reverse md:items-center md:space-x-reverse lg:space-x-reverse xl:space-x-reverse md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-4 space-y-reverse md:space-y-0">
+                            <div id="service-num-1" class="flex flex-col-reverse md:flex-row-reverse md:items-center md:space-x-reverse lg:space-x-reverse xl:space-x-reverse md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-4 space-y-reverse md:space-y-0">
 
                                 <!-- Content -->
                                 <div class="md:min-w-[30rem]" data-aos="fade-left">
@@ -200,7 +212,7 @@
                             </div>
                             
                             <!-- 2nd Service -->
-                            <div class="flex flex-col-reverse md:flex-row md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-4 space-y-reverse md:space-y-0">
+                            <div id="service-num-2" class="flex flex-col-reverse md:flex-row md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-4 space-y-reverse md:space-y-0">
                             
                                 <!-- Content -->
                                 <div class="md:min-w-[30rem]" data-aos="fade-left">
@@ -244,12 +256,12 @@
                             </div>
 
                             <!-- 3rd Service -->
-                            <div class="flex flex-col-reverse md:flex-row-reverse md:items-center md:space-x-reverse lg:space-x-reverse xl:space-x-reverse md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-4 space-y-reverse md:space-y-0">
+                            <div id="service-num-3" class="flex flex-col-reverse md:flex-row-reverse md:items-center md:space-x-reverse lg:space-x-reverse xl:space-x-reverse md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-4 space-y-reverse md:space-y-0">
                             
                                 <!-- Content -->
                                 <div class="md:min-w-[30rem]" data-aos="fade-left">
                                     <h2 class="h3 md:text-4xl font-playfair-display mb-2">
-                                        <span class="text-slate-800">For Teams</span>
+                                        <span class="text-slate-800">For PM Teams</span>
                                     </h2>
                                     <h3 class="md:text-2xl font-playfair-display mb-4">
                                         <span class="text-slate-800">Product Operations, Process Excellence 🛠</span>
@@ -284,7 +296,7 @@
                             </div>
 
                             <!-- 4th Service -->
-                            <div class="flex flex-col-reverse md:flex-row md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-4 space-y-reverse md:space-y-0">
+                            <div id="service-num-4" class="flex flex-col-reverse md:flex-row md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-4 space-y-reverse md:space-y-0">
                             
                                 <!-- Content -->
                                 <div class="md:min-w-[30rem]" data-aos="fade-left">
@@ -323,7 +335,7 @@
                             </div>
 
                             <!-- 5th Service -->
-                            <div class="flex flex-col-reverse md:flex-row-reverse md:items-center md:space-x-reverse lg:space-x-reverse xl:space-x-reverse md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-4 space-y-reverse md:space-y-0">
+                            <div id="service-num-5" class="flex flex-col-reverse md:flex-row-reverse md:items-center md:space-x-reverse lg:space-x-reverse xl:space-x-reverse md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-4 space-y-reverse md:space-y-0">
                             
                                 <!-- Content -->
                                 <div class="md:min-w-[30rem]" data-aos="fade-left">
@@ -364,6 +376,50 @@
                             
                             </div>
 
+                            <!-- 6th Service -->
+                            <div id="service-num-6" class="flex flex-col-reverse md:flex-row md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-4 space-y-reverse md:space-y-0">
+                            
+                                <!-- Content -->
+                                <div class="md:min-w-[30rem]" data-aos="fade-left">
+                                    <h2 class="h3 md:text-4xl font-playfair-display mb-2">
+                                        <span class="text-slate-800">Workshops</span>
+                                    </h2>
+                                    <h3 class="md:text-2xl font-playfair-display mb-4">
+                                        <span class="text-slate-800">Customized to your product and team 🔥</span>
+                                    </h3>
+                                    <p class="text-lg text-slate-500 border-l-2 border-slate-800 pl-4 mb-8">
+                                        High-impact sessions designed to unlock clarity, upgrade product thinking, and empower your teams to execute smarter.
+                                    </p>
+                                    <div class="space-y-3">
+                                        <div class="text-slate-500">
+                                            <ul class="space-y-2">
+                                                <li>• Data Driven Product Management</li>
+                                                <li>• KPIs that work for your product stage</li>
+                                                <li>• Beyond the Backlog: Measuring the PM</li>
+                                                <li>• Agile Product Owner</li>
+                                                <li>• Prioritization Workshop</li>
+                                                <li>• Product Ideation Challenge</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Image -->
+                                <div class="flex justify-center items-center" data-aos="fade-right">
+                                    <div class="relative">
+                                        <div class="absolute inset-0 pointer-events-none border-2 border-slate-200 translate-x-4 -translate-y-4 -z-10" aria-hidden="true"></div>
+                                        <img class="mx-auto md:max-w-none" src="./images/customers-03.jpg" width="540" height="405" alt="Customer 06" />
+                                    </div>
+                                    <button class="absolute group">
+                                        <svg class="w-16 h-16 fill-current sm:w-20 sm:h-20 group" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
+                                            <circle class="text-white opacity-80 group-hover:opacity-100 transition duration-150 ease-in-out" cx="44" cy="44" r="44" />
+                                            <path class="text-blue-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            
+                            </div>
+
                         </div>
 
                     </div>
@@ -384,11 +440,11 @@
                             </div>
 
                             <div class="relative">
-                                <h2 class="h2 font-playfair-display text-slate-100 mb-4">Say goodbye to long queues, big updates, and <span class="text-emerald-500">confusion</span>.</h2>
-                                <p class="text-xl text-slate-400 mb-8">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.</p>
+                                <h2 class="h2 font-playfair-display text-slate-100 mb-4">Start seeing results today.</h2>
+                                <p class="text-xl text-slate-400 mb-8">Let’s talk and tailor a product plan that works for you.</p>
                                 <div>
-                                    <a class="btn text-white bg-blue-600 hover:bg-blue-700 group" href="request-demo.html">
-                                        Request Demo <span class="tracking-normal text-blue-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
+                                    <a class="btn text-white bg-blue-600 hover:bg-blue-700 group" href="lets-talk.html">
+                                        Let’s Talk <span class="tracking-normal text-blue-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
                                     </a>
                                 </div>
                             </div>
