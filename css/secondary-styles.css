@@ -1,0 +1,53 @@
+/* companies-testimonials */
+
+#companies-testimonials {
+  display: flex;
+  gap: 40px;
+}
+#companies-testimonials .screenshot-wrapper {
+  transition: transform 300ms ease-in-out;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+#companies-testimonials .letter img {
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+#companies-testimonials .screenshots {
+  display: flex;
+  gap: 20px;
+}
+#companies-testimonials .screenshots .screenshots-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#testimonials-container img {
+  transition: transform 300ms ease-in-out;
+}
+#testimonials-container img:hover {
+  transform: translateY(-5px);
+}
+@media (max-width: 768px) {
+  #companies-testimonials {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* testimonials-1v1 */
+
+#testimonials-1v1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 34px;
+}
+
+#testimonials-1v1 > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 34px;
+}

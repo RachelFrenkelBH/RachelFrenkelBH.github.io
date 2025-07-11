@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="./css/vendors/aos.css" rel="stylesheet">
     <link href="./style.css" rel="stylesheet">
+    <link href="./css/secondary-styles.css" rel="stylesheet">
 </head>
 
 <body class="font-inter antialiased bg-white text-slate-800 tracking-tight">
@@ -290,91 +291,52 @@
                 </div>
             </section>
 
-<!-- Teams Testimonials -->
-<section class="border-t border-slate-200" style="background-color: #2175ea12">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="py-12 md:py-20">
+            <!-- Testimonials: Companies & Courses -->
+            <section class="border-t border-slate-200" style="background-color: #2175ea12">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6">
+                    <div class="py-12 md:py-20">
 
-      <!-- Section header -->
-      <div class="mx-auto text-center pb-12 md:pb-20">
-        <span class="h2 font-playfair-display" style="color: color-mix(in lch, #1d293d, #00bc7d 90%)">
-          Testimonials
-        </span>
-        <h2 class="h2 font-playfair-display text-slate-800">
-          Companies & Courses
-        </h2>
-      </div>
+                    <!-- Section header -->
+                    <div class="mx-auto text-center pb-12 md:pb-20">
+                        <span class="h2 font-playfair-display" style="color: color-mix(in lch, #1d293d, #00bc7d 90%)">
+                        Testimonials
+                        </span>
+                        <h2 class="h2 font-playfair-display text-slate-800">
+                        Companies & Courses
+                        </h2>
+                    </div>
 
-      <div id="companies-testimonials">
-        <a class="letter screenshot-wrapper" href="./assets/A Success Story - Rachel Frenkel BenHanoch.pdf" target="_blank" rel="noopener noreferrer">
-            <img
-                class="shadow-xl" data-aos="fade-up"
-                src="./assets/letter-success-story.webp"
-                alt="Letter by Ariel Cohen from Lennar"
-            />
-        </a>
+                    <div id="companies-testimonials">
+                        <a class="letter screenshot-wrapper" href="./assets/A Success Story - Rachel Frenkel BenHanoch.pdf" target="_blank" rel="noopener noreferrer">
+                            <img
+                                class="shadow-xl" data-aos="fade-up"
+                                src="./assets/letter-success-story.webp"
+                                alt="Letter by Ariel Cohen from Lennar"
+                            />
+                        </a>
 
-        <div class="screenshots">
-            <div class="screenshots-column">
-                <div class="screenshot-wrapper">
-                    <img class="shadow-xl" data-aos="fade-up" data-aos-delay="100" src="./assets/company-testimonials/michal.jpeg" alt="Michal" />
+                        <div class="screenshots">
+                            <div class="screenshots-column">
+                                <div class="screenshot-wrapper">
+                                    <img class="shadow-xl" data-aos="fade-up" data-aos-delay="100" src="./assets/company-testimonials/michal.jpeg" alt="Michal" />
+                                </div>
+                                <div class="screenshot-wrapper">
+                                    <img class="shadow-xl" data-aos="fade-up" data-aos-delay="200" src="./assets/company-testimonials/yael.jpeg" alt="Yael" />
+                                </div>
+                            </div>
+                            <div class="screenshots-column">
+                                <div class="screenshot-wrapper">
+                                    <img class="shadow-xl" data-aos="fade-up" data-aos-delay="300" src="./assets/company-testimonials/rico.jpeg" alt="Rico" />
+                                </div>
+                                <div class="screenshot-wrapper">
+                                    <img class="shadow-xl" data-aos="fade-up" data-aos-delay="400" src="./assets/company-testimonials/phytech.jpeg" alt="Phytech" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-                <div class="screenshot-wrapper">
-                    <img class="shadow-xl" data-aos="fade-up" data-aos-delay="200" src="./assets/company-testimonials/yael.jpeg" alt="Yael" />
-                </div>
-            </div>
-            <div class="screenshots-column">
-                <div class="screenshot-wrapper">
-                    <img class="shadow-xl" data-aos="fade-up" data-aos-delay="300" src="./assets/company-testimonials/rico.jpeg" alt="Rico" />
-                </div>
-                <div class="screenshot-wrapper">
-                    <img class="shadow-xl" data-aos="fade-up" data-aos-delay="400" src="./assets/company-testimonials/phytech.jpeg" alt="Phytech" />
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <style>
-        #companies-testimonials {
-            display: flex;
-            gap: 40px;
-        }
-        #companies-testimonials .screenshot-wrapper { 
-            transition: transform 300ms ease-in-out;
-            &:hover { 
-                transform: translateY(-5px); 
-            }
-        }
-        #companies-testimonials .letter img { 
-            cursor: pointer;
-            border-radius: 8px; 
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-        }
-        #companies-testimonials .screenshots {
-            display: flex;
-            gap: 20px;
-        }
-        #companies-testimonials .screenshots .screenshots-column {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        #testimonials-container img {
-            transition: transform 300ms ease-in-out;
-        }
-        #testimonials-container img:hover {
-            transform: translateY(-5px);
-        }
-        @media (max-width: 768px) {
-            #companies-testimonials {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-      </style>
-    </div>
-  </div>
-</section>
+            </section>
 
 
             <!-- 1:1 Testimonials -->
@@ -392,47 +354,33 @@
                         </div>
 
                         <!-- Testimonials container -->
-                        <div id="testimonials-container" class="max-w-sm mx-auto sm:max-w-none grid gap-12 sm:grid-cols-2 md:grid-cols-3 sm:gap-x-6 sm:gap-y-8 items-start mb-12 md:mb-16" style="place-items: center" data-aos-id-testimonials>
+                        <div id="testimonials-1v1" data-aos-id-testimonials>
                         
-                            <!-- 1st Testimonial -->
-                            <article class="flex shadow-xl" data-aos="fade-up" data-aos-anchor="[data-aos-id-testimonials]" data-aos-delay="000">
-                                <img src="./assets/moran.jpeg" width="100%" height="100%" alt="Testimonial 01" />
-                            </article>
+                            <div>
+                                <article class="flex shadow-xl" data-aos="fade-up" data-aos-anchor="[data-aos-id-testimonials]" data-aos-delay="000">
+                                    <img src="./assets/apps-flyer-offer.jpeg" width="100%" height="100%" alt="Testimonial 03" />
+                                </article>
+                                
+                                <article class="flex shadow-xl" data-aos="fade-up" data-aos-anchor="[data-aos-id-testimonials]" data-aos-delay="100">
+                                    <img src="./assets/nifla-nifla.jpeg" width="100%" height="100%" alt="Testimonial 02" />
+                                </article>
+                            </div>
 
-                            <!-- 2nd Testimonial -->
-                           <article class="flex shadow-xl" data-aos="fade-up" data-aos-anchor="[data-aos-id-testimonials]" data-aos-delay="100">
-                                <img src="./assets/nifla-nifla.jpeg" width="100%" height="100%" alt="Testimonial 02" />
-                            </article>
-
-                            <!-- 3rd Testimonial -->
-                            <article class="flex shadow-xl" data-aos="fade-up" data-aos-anchor="[data-aos-id-testimonials]" data-aos-delay="200">
-                                <img src="./assets/apps-flyer-offer.jpeg" width="100%" height="100%" alt="Testimonial 03" />
-                            </article>
+                            <div>
+                                <article class="flex shadow-xl" data-aos="fade-up" data-aos-anchor="[data-aos-id-testimonials]" data-aos-delay="200">
+                                    <img src="./assets/liran.jpeg" width="100%" height="100%" alt="Testimonial 06" />
+                                </article>
+                                
+                                <article class="flex shadow-xl" data-aos="fade-up" data-aos-anchor="[data-aos-id-testimonials]" data-aos-delay="300">
+                                    <img src="./assets/boaz.jpeg" width="100%" height="100%" alt="Testimonial 05" />
+                                </article>
+                            </div>
                             
-                            <!-- 4th Testimonial -->
-                            <article class="flex shadow-xl" data-aos="fade-up" data-aos-anchor="[data-aos-id-testimonials]" data-aos-delay="300">
-                                <img src="./assets/noy.jpeg" width="100%" height="100%" alt="Testimonial 04" />
-                            </article>
-
-                            <!-- 5th Testimonial -->
-                            <article class="flex shadow-xl" data-aos="fade-up" data-aos-anchor="[data-aos-id-testimonials]" data-aos-delay="400">
-                                <img src="./assets/boaz.jpeg" width="100%" height="100%" alt="Testimonial 05" />
-                            </article>
-                            
-                            <!-- 6th Testimonial -->
-                            <article class="flex shadow-xl" data-aos="fade-up" data-aos-anchor="[data-aos-id-testimonials]" data-aos-delay="500">
-                                <img src="./assets/liran.jpeg" width="100%" height="100%" alt="Testimonial 06" />
-                            </article>
-
-                            <style>
-                                #testimonials-container > article {
-                                    transition: transform 300ms ease-in-out;
-                                }
-                                #testimonials-container > article:hover {
-                                    transform: translateY(-5px);
-                                }
-                            </style>
-
+                            <div>
+                                <article class="flex shadow-xl" data-aos="fade-up" data-aos-anchor="[data-aos-id-testimonials]" data-aos-delay="400">
+                                    <img src="./assets/noy.jpeg" width="100%" height="100%" alt="Testimonial 04" />
+                                </article>
+                            </div>
                         </div>
                     </div>
                 </div>
