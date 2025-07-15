@@ -127,12 +127,13 @@
                                 <rect class="origin-center group-aria-expanded:rotate-45 transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)]" y="7" width="16" height="2" rx="1"></rect>
                                 <rect class="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] translate-y-[5px] group-aria-expanded:rotate-[135deg] group-aria-expanded:translate-y-0" y="7" width="16" height="2" rx="1"></rect>
                             </svg>
-                        </button> 
+                        </button>
 
                         <!-- Mobile navigation -->
                         <nav
                             id="mobile-nav"
-                            class="absolute top-full h-screen pb-16 z-20 left-0 w-full overflow-scroll no-scrollbar bg-white"
+                            class="absolute top-full z-20 left-0 overflow-scroll no-scrollbar bg-white"
+                            style="padding-inline: 6px; padding-block: 2px; left: 12px;"
                             @click.away="expanded = false"
                             @keydown.escape.window="expanded = false"
                             x-show="expanded"
@@ -145,16 +146,19 @@
                             x-cloak
                         >
                             <ul class="px-5 py-2">
-                                <li>
+                                <li class="border-b" style="border-color: #999; border-bottom-width: 0.5px;">
                                     <a class="flex font-medium text-slate-800 hover:text-blue-600 py-2" href="index.html">Home</a>
                                 </li>
-                                <li>
+                                <li class="border-b" style="border-color: #999; border-bottom-width: 0.5px;">
+                                    <a class="flex font-medium text-slate-800 hover:text-blue-600 py-2" href="index.html#testomonials-companies">Testimonials</a>
+                                </li>
+                                <li class="border-b" style="border-color: #999; border-bottom-width: 0.5px;">
                                     <a class="flex font-medium text-slate-800 hover:text-blue-600 py-2" href="services.html">Services</a>
                                 </li>
-                                <li>
+                                <li class="border-b" style="border-color: #999; border-bottom-width: 0.5px;">
                                     <a class="flex font-medium text-slate-800 hover:text-blue-600 py-2" href="faq.html">FAQ</a>
                                 </li>
-                                <li>
+                                <li class="border-b" style="border-color: #999; border-bottom-width: 0.5px;">
                                     <a class="flex font-medium text-slate-800 hover:text-blue-600 py-2" href="about.html">About</a>
                                 </li>
                                 <li>
