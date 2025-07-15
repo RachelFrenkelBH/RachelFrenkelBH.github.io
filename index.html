@@ -189,7 +189,7 @@
                         <div class="max-w-xl mx-auto md:max-w-none md:flex md:items-center md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-16 md:space-y-0">
 
                             <!-- Content -->
-                            <div class="text-center md:text-left md:min-w-[30rem]" data-aos="fade-right">
+                            <div style="padding: 12px;" class="text-center md:text-left md:min-w-[30rem]" data-aos="fade-right">
                                 
                                 <div style="display: flex; flex-direction: column; gap: 0px; align-items: center;">
                                     <img src="./assets/PMproLogo.png" alt="PMpro Logo" width="60%" aria-hidden="true">
@@ -197,7 +197,7 @@
                                     <p class="text-slate-100 text-center mb-12" style="font-size: 40px; line-height: 1;">
                                         product management excellence in action
                                     </p>
-                                    <p class="text-xl text-slate-400 mb-8 text-center">With over 20 years of experience in product management, I help companies, teams, and individuals level up their product game.</p>
+                                    <p class="text-xl text-slate-400 mb-12 text-center">With over 20 years of experience in product management, I help companies, teams, and individuals level up their product game.</p>
                                     <div class="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                                         <div>
                                             <a class="btn text-white bg-blue-600 hover:bg-blue-700 w-full group" href="lets-talk.html">
@@ -211,20 +211,14 @@
                                 </div>
                             </div>
                                 
-                                <!-- Hero image -->
-                            <div x-data="{ modalExpanded: false }"  data-aos="fade-left"> 
+                            <!-- Hero image -->
+                            <div style="padding: 12px;" data-aos="fade-left"> 
                                 <!-- Image -->
                                 <div class="flex justify-center items-center">
                                     <div class="relative">
                                         <div class="absolute inset-0 pointer-events-none border-2 border-slate-700 mt-3 ml-3 translate-x-4 translate-y-4 -z-10" aria-hidden="true"></div>
-                                        <img class="mx-auto md:max-w-none" src="./assets/rachel-hero.jpeg" width="540" height="405" alt="Hero" />
+                                        <img class="mx-auto md:max-w-none" src="./assets/rachel-images/Rachel biz3.jpeg" width="540" height="405" alt="Hero" />
                                     </div>
-                                    <button class="absolute group" @click.prevent="modalExpanded = true" aria-controls="modal">
-                                        <svg class="w-16 h-16 fill-current sm:w-20 sm:h-20 group" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
-                                            <circle class="text-white opacity-80 group-hover:opacity-100 transition duration-150 ease-in-out" cx="44" cy="44" r="44" />
-                                            <path class="text-blue-600" d="M52 44a.999.999 0 00-.427-.82l-10-7A1 1 0 0040 37V51a.999.999 0 001.573.82l10-7A.995.995 0 0052 44V44c0 .001 0 .001 0 0z" />
-                                        </svg>
-                                    </button>
                                 </div>
 
                                 <!-- Modal backdrop -->
@@ -470,7 +464,7 @@
                         </div>
 
                         <!-- Section content -->
-                        <div class="max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:items-start md:space-x-8 lg:space-x-16 xl:space-x-18 space-y-8 space-y-reverse md:space-y-0" x-data="{ tab: '1' }">
+                        <div class="md:gap-x-6 max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:items-start md:space-x-8 lg:space-x-16 xl:space-x-18 space-y-8 space-y-reverse md:space-y-0" x-data="{ tab: '1' }">
 
                             <!-- Tabs items (images) -->
                             <div class="md:rtl md:w-5/12 lg:w-1/2 order-1 md:order-none" data-aos="fade-down">
@@ -486,7 +480,7 @@
                                         x-transition:leave-start="opacity-100 translate-y-0"
                                         x-transition:leave-end="opacity-0 translate-y-16"
                                     >
-                                        <img class="mx-auto rounded-sm" src="./assets/rachel-has-an-idea.jpeg" width="432" height="496" alt="Features home 2 01" />
+                                        <img class="md:max-w-none mx-auto rounded-sm" src="./assets/rachel-images/Rachel biz5.jpeg" width="540" height="960" alt="Features home 2 01" />
                                     </div>
                                     <!-- Item 2 -->
                                     <div
@@ -499,7 +493,7 @@
                                         x-transition:leave-start="opacity-100 translate-y-0"
                                         x-transition:leave-end="opacity-0 translate-y-16"
                                     >
-                                        <img class="md:max-w-none mx-auto rounded-sm" src="./images/features-home-02.png" width="540" height="620" alt="Features home 2 02" />                           
+                                        <img class="md:max-w-none mx-auto rounded-sm" src="./assets/rachel-images/rachel in class.webp" width="540" height="960" alt="Features home 2 02" />                           
                                     </div>
                                     <!-- Item 3 -->
                                     <div
@@ -512,7 +506,7 @@
                                         x-transition:leave-start="opacity-100 translate-y-0"
                                         x-transition:leave-end="opacity-0 translate-y-16"
                                     >
-                                        <img class="md:max-w-none mx-auto rounded-sm" src="./images/features-home-02.png" width="540" height="620" alt="Features home 2 03" />
+                                        <img class="md:max-w-none mx-auto rounded-sm" src="./assets/rachel-images/Rachel biz4.jpeg" width="540" height="960" alt="Features home 2 03" />
                                     </div>                                                
                                 </div>
                             </div>                
