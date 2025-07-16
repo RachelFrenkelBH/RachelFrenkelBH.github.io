@@ -534,14 +534,15 @@
 
     </div>
 
-    <script>
+    <script type="module">
         const msgTemplates = {
-            individuals: "Hi Rachel, I'm interested in your services as a product manager. I would like to discuss how you can help me with my product management needs. Please let me know when we can schedule a call.",
-            companies: "Hello Rachel, we are a company looking for product management services. We would like to explore how your expertise can benefit our product development process. Please contact us to arrange a meeting."
+            individuals: "Hi Rachel, I'm interested in more information about individual coaching.",
+            workshops: "Hi Rachel, I'm interested in more information about workshops.",
+            teams: "Hi Rachel, I'm interested in more information about team coaching.",
         }
-        const params = Object.fromEntries(new URLSearchParams(location.search));
-        const msgTemplate = msgTemplates[params.path];
-        if (msgTemplate) {
+        const path = new URLSearchParams(location.search).get('path');
+        if (msgTemplates.hasOwnProperty(path)) {
+            const msgTemplate = msgTemplates[path];
             document.getElementById("message").textContent ||= msgTemplate;
         }
     </script>
