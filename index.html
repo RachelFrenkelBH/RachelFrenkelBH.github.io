@@ -453,9 +453,7 @@
             </section>
 
             <!-- Features blocks -->
-            <!-- Features 01 -->
             <section>
-
                 <div class="max-w-6xl mx-auto px-4 sm:px-6">
                     <div class="py-12 md:py-20 border-t border-slate-200">
 
@@ -508,6 +506,19 @@
                                         x-transition:leave-end="opacity-0 translate-y-16"
                                     >
                                         <img class="md:max-w-none mx-auto rounded-sm" src="./assets/rachel-images/Rachel biz4.jpeg" width="540" height="777" style="width: 540px; height: 777px; object-fit: cover;" alt="Features home 2 03" />
+                                    </div>
+                                    <!-- Item 4 -->
+                                    <div
+                                        class="w-full"
+                                        x-show="tab === '4'"
+                                        x-transition:enter="transition ease-in-out duration-700 transform order-first"
+                                        x-transition:enter-start="opacity-0 -translate-y-16"
+                                        x-transition:enter-end="opacity-100 translate-y-0"
+                                        x-transition:leave="transition ease-in-out duration-300 transform absolute"
+                                        x-transition:leave-start="opacity-100 translate-y-0"
+                                        x-transition:leave-end="opacity-0 translate-y-16"
+                                    >
+                                        <img class="md:max-w-none mx-auto rounded-sm" src="./assets/rachel-hero.jpeg" width="540" height="777" style="width: 540px; height: 777px; object-fit: cover;" alt="Rachel Hero" />
                                     </div>                                                
                                 </div>
                             </div>                
@@ -548,7 +559,7 @@
                                     </button>
                                     <button
                                         :class="tab !== '3' ? 'border-transparent opacity-50 hover:opacity-75' : 'border-2 border-blue-500 opacity-100'"
-                                        class="flex items-start text-left bg-white border-2 px-5 py-3 rounded-sm shadow-md transition duration-300 ease-in-out"
+                                        class="flex items-start text-left bg-white border-2 px-5 py-3 rounded-sm shadow-md transition duration-300 ease-in-out mb-3"
                                         @click="tab = '3'"
                                     >
                                         <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 mt-1 mr-4" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
@@ -557,6 +568,20 @@
                                         <div>
                                             <div class="text-slate-800 font-medium mb-1">Multi-Industry Background</div>
                                             <div class="text-slate-500">My work spans travel tech, logistics, smart retail, digital marketing, agritech, construction tech, IoT, banking, IT, automation, and more.</div>
+                                        </div>
+                                    </button>
+                                    <button
+                                        :class="tab !== '4' ? 'border-transparent opacity-50 hover:opacity-75' : 'border-2 border-blue-500 opacity-100'"
+                                        class="flex items-start text-left bg-white border-2 px-5 py-3 rounded-sm shadow-md transition duration-300 ease-in-out"
+                                        @click="tab = '4'"
+                                    >
+                                        <svg class="w-4 h-4 fill-current text-blue-600 shrink-0 mt-1 mr-4" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8Zm0 14c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6Z" />
+                                            <path d="M10.5 4H5.5c-.3 0-.5.2-.5.5v7c0 .3.2.5.5.5h5c.3 0 .5-.2.5-.5V4.5c0-.3-.2-.5-.5-.5Zm-5 1h5v7H5.5V5Z" />
+                                        </svg>
+                                        <div>
+                                            <div class="text-slate-800 font-medium mb-1">Public Speaking</div>
+                                            <div class="text-slate-500">Delivering engaging presentations and workshops to diverse audiences.</div>
                                         </div>
                                     </button>
                                 </div>
