@@ -263,9 +263,33 @@
                                         </div>
 
                                         <div>
-                                            <button type="submit" class="btn text-white bg-blue-600 hover:bg-blue-700 w-full group py-3">
+                                            <button id="btn-send-active" type="submit" class="btn text-white bg-blue-600 hover:bg-blue-700 w-full group py-3">
                                                 Send Message <span class="tracking-normal text-blue-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
                                             </button>
+                                            <button id="btn-send-loading" style="display: none" type="submit" disabled class="btn text-white bg-blue-700 w-full py-3">
+                                                <span class="flex items-center justify-center gap-12">
+                                                    <span class="loader">Sending Your Message</span>
+                                                </span>
+                                            </button>
+
+                                            <!-- Success message -->
+                                            <div id="success-message" style="display: none"  class="mt-6 flex items-center p-4 text-sm text-green-800 bg-green-100 rounded-sm" role="alert">
+                                                <svg class="w-5 h-5 mr-2 text-green-700" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                                </svg>
+                                                <span>
+                                                    Thank you for reaching out!
+                                                </span>
+                                            </div>
+
+                                            <!-- Error message -->
+                                            <div id="error-message" style="display: none" class="mt-6 flex items-center p-4 text-sm text-red-800 bg-red-100 rounded-sm" role="alert">
+                                                <svg class="w-5 h-5 mr-2 text-red-700" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM11.414 10l2.293-2.293a1 1 0 00-1.414-1.414L10 8.586 7.707 6.293a1 1 0 00-1.414 1.414L8.586 10l-2.293 2.293a1 1 0 001.414 1.414L10 11.414l2.293 2.293a1 1 0 001.414-1.414L11.414 10z" clip-rule="evenodd" />
+                                                </svg>
+                                                <span>Something went wrong error message.</span>
+                                            </div>
+
                                         </div>
                                     </form>
                                 </div>
@@ -372,8 +396,19 @@
             </section>
 
             <script>
+                const endpoint = 'https://contactme-e4gcz6v65q-uc.a.run.app';
+                fetch(endpoint).then(() => {}).catch(() => {}) // Warm up the endpoint
+
                 async function handleSubmit(e) {
                     e.preventDefault();
+
+                    const btnSendActive = document.getElementById("btn-send-active");
+                    const btnSendLoading = document.getElementById("btn-send-loading");
+                    const successMessage = document.getElementById("success-message");
+                    const errorMessage = document.getElementById("error-message");
+
+                    btnSendActive.style.display = "none";
+                    btnSendLoading.style.display = "inline";
 
                     const formData = new FormData(e.target);
                     const data = {
@@ -383,8 +418,6 @@
                         company: formData.get('company'),
                         message: formData.get('message'),
                     };
-
-                    const endpoint = 'https://contactme-e4gcz6v65q-uc.a.run.app';
 
                     try {
                         const res = await fetch(endpoint, {
@@ -398,17 +431,48 @@
                             throw new Error(msg || res.statusText);
                         }
 
-                        alert('Message sent successfully! Thank you for reaching out. Rachel will get back to you within 1 business day.');
+                        successMessage.style.display = "flex";
+                        errorMessage.style.display = "none";
                         e.target.reset();
+                        window.formWasSubmitted = true;
                     }
                     catch (err) {
-                        alert([
-                            'Could not send message.', 
-                            `${err.message}.`, 
+                        successMessage.style.display = "none";
+                        errorMessage.style.display = "flex";
+                        errorMessage.querySelector('span').innerHTML = [
+                            `Message not sent. ${err.message}.`, 
                             'Please contact me via email or WhatsApp. ❤️'
-                        ].filter(Boolean).join('\n'));
+                        ].filter(Boolean).join('<br>');
                     }
+
+                    btnSendActive.style.display = "inline";
+                    btnSendLoading.style.display = "none";
                 }
+
+                window.formWasSubmitted = false;
+
+                window.addEventListener("beforeunload", function (event) {
+                    if (window.formWasSubmitted) return;
+                    
+                    const formData = new FormData(e.target);
+                    const data = {
+                        name: formData.get('name'),
+                        email: formData.get('email'),
+                        role: formData.get('role'),
+                        company: formData.get('company'),
+                        message: formData.get('message'),
+                    };
+
+                    Object.entries(data).forEach(([key, value]) => {
+                        data[key] = value ? `[not submitted] ${value}` : `[not filled]`;
+                    });
+
+                    fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data),
+                    });
+                });
             </script>            
             
         </main>
@@ -496,6 +560,45 @@
     <script src="./js/vendors/alpinejs.min.js" defer></script>
     <script src="./js/vendors/aos.js"></script>
     <script src="./js/main.js"></script>
+
+    <style>
+.loader {
+  color: #FFF;
+  display: inline-block;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+.loader::after {
+  content: '';  
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+  position: absolute;
+  bottom: 7px;
+  right: -2px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background: transparent;
+  animation: animloader 1s linear infinite;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 10px 0 rgba(255,255,255,0.4), 20px 0 rgba(255,255,255,0), 30px 0 rgba(255,255,255,0);
+  }
+  25% {
+    box-shadow: 10px 0 white, 20px 0 rgba(255,255,255,0.4), 30px 0 rgba(255,255,255,0);
+  }
+  50% {
+    box-shadow: 10px 0 white, 20px 0 white, 30px 0 rgba(255,255,255,0.4);
+  }
+  75%, 100% {
+    box-shadow: 10px 0 white, 20px 0 white, 30px 0 white;
+  }
+}
+
+    </style>
 
 </body>
 
