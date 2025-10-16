@@ -935,15 +935,15 @@
     <p style="text-align:center; color:#0051af; margin-bottom:20px;">מלאי את הפרטים ונחזור אלייך לשיחת ייעוץ ידידותית 💬</p>
     <div class="form-container">
      <form id="registrationForm">
-      <div class="form-group"><label for="name">שם מלא *</label> <input type="text" id="name" name="name" required>
+      <div class="form-group"><label for="name">שם מלא *</label> <input type="text" id="name" name="name" required maxlength="50">
       </div>
-      <div class="form-group"><label for="email">כתובת אימייל *</label> <input type="email" id="email" name="email" required>
+      <div class="form-group"><label for="email">כתובת אימייל *</label> <input type="email" id="email" name="email" required maxlength="255">
       </div>
-      <div class="form-group"><label for="phone">מספר טלפון *</label> <input type="tel" id="phone" name="phone" required>
+      <div class="form-group"><label for="phone">מספר טלפון *</label> <input type="tel" id="phone" name="phone" required maxlength="15">
       </div>
       <div class="form-group"><label for="background">רקע מקצועי נוכחי *</label> <select id="background" name="background" required> <option value="">בחרי את התחום שלך</option> <option value="development">פיתוח</option> <option value="qa">QA</option> <option value="project-management">ניהול פרויקטים</option> <option value="marketing">שיווק</option> <option value="support">תמיכה</option> <option value="analytics">אנליטיקה</option> <option value="operations">אופרציה</option> <option value="sales">מכירות</option> <option value="customer-service">שירות לקוחות</option> <option value="other">אחר</option> </select>
       </div>
-      <div class="form-group"><label for="motivation">מה מניע אותך לעבור לניהול מוצר? *</label> <textarea id="motivation" name="motivation" rows="4" required placeholder="ספרי לנו על המטרות שלך והציפיות מהקורס"></textarea>
+      <div class="form-group"><label for="motivation">מה מניע אותך לעבור לניהול מוצר?</label> <textarea id="motivation" name="motivation" rows="4" maxlength="2048" placeholder="ספרי לנו על המטרות שלך והציפיות מהקורס"></textarea>
       </div><button type="submit" class="submit-button" id="submitBtn">אני רוצה לשמוע עוד!</button>
       <p style="font-size:0.9rem; text-align:center; color:#555;">💡 אפשר גם רק לשאול שאלה</p>
       <div class="loading" id="loading">

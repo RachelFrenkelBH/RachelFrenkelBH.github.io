@@ -14,15 +14,17 @@ form.addEventListener("submit", async (e) => {
   const data = Object.fromEntries(formData.entries());
 
   try {
-    // const response = await fetch("https://your-backend-endpoint.com/submit", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(data),
-    // });
-    console.log("Submitting form data...", data);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Form submitted");
-    const response = { ok: true }; // Simulated response
+    const url = "https://us-central1-pmpro-rachel.cloudfunctions.net/pmCourseUltraContact";
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    // console.log("Submitting form data...", data);
+    // await new Promise((resolve) => setTimeout(resolve, 1500));
+    // console.log("Form submitted");
+    // const response = { ok: true }; // Simulated response
 
     if (!response.ok) {
       throw new Error("Network response was not ok");
