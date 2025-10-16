@@ -1,0 +1,1142 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>קורס ניהול מוצר בשילוב AI - רחל פרנקל</title>
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0f1d2d 0%, #0051af 100%);
+            color: #edf1f5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0f1d2d 0%, #0051af 100%);
+            color: #edf1f5;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.15)"/><circle cx="40" cy="70" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="80" r="2.5" fill="rgba(255,255,255,0.08)"/><circle cx="10" cy="60" r="1.2" fill="rgba(255,255,255,0.12)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInDown 1s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            animation: slideInUp 1s ease-out 0.3s both;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 0.95;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #2174ea, #2cb3c6);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(33, 116, 234, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite;
+            z-index: 2;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 8px 25px rgba(33, 116, 234, 0.3); }
+            50% { box-shadow: 0 8px 35px rgba(33, 116, 234, 0.5); }
+            100% { box-shadow: 0 8px 25px rgba(33, 116, 234, 0.3); }
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(45deg, #0051af, #2174ea);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(33, 116, 234, 0.5);
+        }
+
+        .main-content {
+            background: #edf1f5;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section h2 {
+            color: #0051af;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #2cb3c6, #0051af);
+            border-radius: 2px;
+            animation: expandLine 1s ease-out 0.5s both;
+        }
+
+        @keyframes expandLine {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .course-details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border-right: 5px solid #0051af;
+            box-shadow: 0 5px 20px rgba(15, 29, 45, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: cardSlideIn 0.6s ease-out forwards;
+            color: #0f1d2d;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.1s; }
+        .feature-card:nth-child(2) { animation-delay: 0.2s; }
+        .feature-card:nth-child(3) { animation-delay: 0.3s; }
+        .feature-card:nth-child(4) { animation-delay: 0.4s; }
+        .feature-card:nth-child(5) { animation-delay: 0.5s; }
+        .feature-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes cardSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 81, 175, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 81, 175, 0.2);
+            border-right-color: #2cb3c6;
+        }
+
+        .feature-card h3 {
+            color: #0051af;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .feature-card:hover h3 {
+            color: #2cb3c6;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #2174ea, #2cb3c6);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(33, 116, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .instructor-section {
+            background: #0f1d2d;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instructor-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,100 100,0 100,100" fill="rgba(102,126,234,0.05)"/></svg>');
+            animation: slideBackground 15s ease-in-out infinite;
+        }
+
+        @keyframes slideBackground {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(20px); }
+        }
+
+        .instructor-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s ease;
+            animation: zoomIn 0.8s ease-out;
+            color: #0f1d2d;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .instructor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .instructor-card h3 {
+            color: #0051af;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+
+
+        .price-section {
+            background: linear-gradient(135deg, #0051af 0%, #2174ea 100%);
+            color: #edf1f5;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-section h2 {
+            color: #edf1f5;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .price-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #2cb3c6, #edf1f5);
+            border-radius: 2px;
+            animation: expandLine 1s ease-out 0.5s both;
+        }
+
+        .price-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="30" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="30" cy="80" r="0.8" fill="rgba(255,255,255,0.12)"/></svg>');
+            animation: sparkle 8s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .price-box {
+            background: white;
+            color: #0f1d2d;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 15px 40px rgba(15, 29, 45, 0.2);
+            position: relative;
+            z-index: 2;
+            animation: slideInScale 1s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes slideInScale {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .price-box:hover {
+            transform: scale(1.02);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2cb3c6;
+            margin-bottom: 20px;
+            animation: countUp 2s ease-out;
+            position: relative;
+        }
+
+        @keyframes countUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .registration-form {
+            background: linear-gradient(135deg, #edf1f5 0%, #2cb3c6 100%);
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .registration-form h2 {
+            color: #0051af;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .registration-form h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #2cb3c6, #0051af);
+            border-radius: 2px;
+            animation: expandLine 1s ease-out 0.5s both;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            animation: slideInFromBottom 1s ease-out;
+        }
+
+        @keyframes slideInFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+        .form-group:nth-child(3) { animation-delay: 0.3s; }
+        .form-group:nth-child(4) { animation-delay: 0.4s; }
+        .form-group:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #0051af;
+            transition: color 0.3s ease;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #2cb3c6;
+            border-radius: 10px;
+            font-size: 1rem;
+            color: #0f1d2d;
+            background: white;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #0f1d2d;
+            opacity: 0.6;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0051af;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 81, 175, 0.15);
+        }
+
+        .form-group input:focus + label,
+        .form-group select:focus + label,
+        .form-group textarea:focus + label {
+            color: #2174ea;
+        }
+
+        .submit-button {
+            background: linear-gradient(45deg, #2174ea, #2cb3c6);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            animation: buttonSlideIn 0.8s ease-out 0.6s both;
+        }
+
+        @keyframes buttonSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        .submit-button:hover {
+            background: linear-gradient(45deg, #0051af, #2174ea);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(33, 116, 234, 0.3);
+        }
+
+        .submit-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .submit-button:disabled::before {
+            display: none;
+        }
+
+        .success-message {
+            background: linear-gradient(45deg, #2cb3c6, #0051af);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            animation: successSlideIn 0.5s ease-out;
+            box-shadow: 0 5px 20px rgba(44, 179, 198, 0.3);
+        }
+
+        @keyframes successSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .error-message {
+            background: linear-gradient(45deg, #2174ea, #0051af);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+            animation: errorShake 0.5s ease-out;
+            box-shadow: 0 5px 20px rgba(33, 116, 234, 0.3);
+        }
+
+        @keyframes errorShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #2174ea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .details-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .details-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-right: 30px;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: listItemSlideIn 0.5s ease-out forwards;
+            color: #0f1d2d;
+        }
+
+        .details-list li:nth-child(1) { animation-delay: 0.1s; }
+        .details-list li:nth-child(2) { animation-delay: 0.2s; }
+        .details-list li:nth-child(3) { animation-delay: 0.3s; }
+        .details-list li:nth-child(4) { animation-delay: 0.4s; }
+        .details-list li:nth-child(5) { animation-delay: 0.5s; }
+        .details-list li:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes listItemSlideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .details-list li:before {
+            content: "✓";
+            color: #4caf50;
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+            animation: checkmarkPop 0.6s ease-out;
+            animation-delay: inherit;
+        }
+
+        @keyframes checkmarkPop {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .details-list li:hover {
+            background: rgba(102, 126, 234, 0.05);
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Hero Section -->
+  <section class="hero">
+   <div class="container">
+    <h1 id="main-title">קורס ניהול מוצר בשילוב AI</h1>
+    <p class="subtitle" id="subtitle">הקורס המקיף והמעשי ביותר לנשות הייטק חרדיות שרוצות להתקדם לניהול מוצר</p><a href="#registration" class="cta-button" id="cta-button">בדקי התאמה לקורס</a>
+   </div>
+  </section><!-- Main Content -->
+  <section class="main-content">
+   <div class="container"><!-- Course Overview -->
+    <div class="section">
+     <h2>למה ניהול מוצר עכשיו?</h2>
+     <div class="highlight-box">
+      <h3>התפקיד הנחשק ביותר בהייטק!</h3>
+      <p>הביקוש למנהלי מוצר עולה בקביעות משנה לשנה, וגובר עוד יותר עם התעצמותם של כלי GenAI. חברות צריכות יותר מנהלי מוצר שיגדירו מה צריך לפתח ואיך לעשות זאת בחכמה.</p>
+     </div>
+    </div><!-- Course Features -->
+    <div class="section">
+     <h2>מה תלמדי בקורס?</h2>
+     <div class="features-grid">
+      <div class="feature-card">
+       <h3>🎯 אסטרטגיה ותכנון</h3>
+       <p>ייזום, בניית אסטרטגיה, הגדרת השוק, ולידציה ומחקר משתמשים</p>
+      </div>
+      <div class="feature-card">
+       <h3>📋 איפיון ותיעדוף</h3>
+       <p>שיטות איפיון מתקדמות, תיעדוף פיצ'רים ושיטות ניהול פיתוח</p>
+      </div>
+      <div class="feature-card">
+       <h3>🚀 השקה ומדידה</h3>
+       <p>אסטרטגיית השקה, מדידת הצלחה, שיפור וניהול חיי המוצר</p>
+      </div>
+      <div class="feature-card">
+       <h3>🤖 כלי AI מתקדמים</h3>
+       <p>שימוש חכם בכלי GenAI למשימות ניהול מוצר ובקרת איכות</p>
+      </div>
+      <div class="feature-card">
+       <h3>💼 תיק עבודות</h3>
+       <p>4 תרגילים מעשיים שיבנו תיק עבודה מלא לראיונות עבודה</p>
+      </div>
+      <div class="feature-card">
+       <h3>👥 קבוצה אינטימית</h3>
+       <p>מקסימום 20 משתתפות להנחיה אישית ואיכותית</p>
+      </div>
+     </div>
+    </div><!-- Learning Outcomes -->
+    <div class="section">
+     <h2>מה תקבלי בסוף הקורס?</h2>
+     <div class="feature-card">
+      <ul class="details-list">
+       <li>הבנה עמוקה של מקצוע ניהול המוצר והשפה המקצועית</li>
+       <li>שליטה בתהליכים, כלים ומתודולוגיות מתקדמות</li>
+       <li>חשיפה למגוון רחב של משימות מנהלת מוצר בארגון</li>
+       <li>תיק עבודה מלא שניתן להציג בראיונות עבודה</li>
+       <li>ניסיון מעשי בכלי GenAI למשימות ניהול מוצר</li>
+       <li>הבטחון והידע להתמודד על משרות ניהול מוצר</li>
+      </ul>
+     </div>
+    </div><!-- Course Details -->
+    <div class="section">
+     <h2>פרטי הקורס</h2>
+     <div class="course-details-grid">
+      <div class="feature-card">
+       <h3>📅 מועדים</h3>
+       <p><strong>12 מפגשי ערב</strong> של 2.5 שעות<br>
+         ימי ראשון, ד׳ חשוון - ז׳ שבט<br>
+         (26.10 - 25.1)<br>
+         * ללא מפגשים בחג החנוכה</p>
+      </div>
+      <div class="feature-card">
+       <h3>💻 פורמט</h3>
+       <p><strong>מפגשים לייב בזום</strong><br>
+         גישה להקלטות עד 3 חודשים<br>
+         כל מצגות הקורס</p>
+      </div>
+      <div class="feature-card">
+       <h3>👥 קהל יעד</h3>
+       <p><strong>נשים חרדיות בהייטק</strong> שעוסקות במקצועות משיקים כמו: פיתוח, QA, ניהול פרויקטים, שיווק, תמיכה, אנליטיקה, אופרציה או מכירות, ורוצות להתקדם לניהול מוצר</p>
+      </div>
+      <div class="feature-card">
+       <h3>🎓 תעודה</h3>
+       <p><strong>תעודת השתתפות</strong> מ-PMpro<br>
+         פידבק אישי על כל התרגילים</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Instructor Section -->
+  <section class="instructor-section">
+   <div class="container">
+    <div class="instructor-card">
+     <h3 id="instructor-name">רחל פרנקל בן-חנוך</h3>
+     <p><strong>מרצה בכירה לניהול מוצר ומומחית לייעוץ וליווי מקצועי של צוותי מוצר</strong></p>
+     <p><strong>מעל 20 שנות ניסיון</strong> בניהול מוצר, בניית צוותים והובלת תהליכים בחברות טכנולוגיה – מסטארטאפים ועד תאגידים גלובליים</p>
+     <p>כיהנה בתפקידי ניהול מוצר בכירים בחברות כמו <strong>AppsFlyer, Kryon, Powermat, Sweet Inn ו-Avo</strong></p>
+     <p><strong>הקימה מהיסוד את תחום ה-Product Operations באפספלייר</strong></p>
+     <p>מרצה לניהול מוצר באוניברסיטת רייכמן, אפקה ושנקר,</p>
+     <p>ומעבירה סדנאות בארגונים פרטיים וציבוריים.</p>
+     <p><strong>תלמידיה משתלבים בתעשייה בתפקידי ניהול מוצר ומצטיינים בזכות כלים פרקטיים,<br>
+       למידה פעילה ויישום מיידי של הידע</strong></p>
+     <div style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #eee;">
+      <p><strong>PMpro:</strong> <a href="https://www.pmpro.co.il" target="_blank" rel="noopener noreferrer" style="color: #2cb3c6; text-decoration: none; font-weight: bold;">www.pmpro.co.il</a></p>
+      <p><strong>לינקדאין:</strong> <a href="https://www.linkedin.com/in/rachelbh/" target="_blank" rel="noopener noreferrer" style="color: #2cb3c6; text-decoration: none; font-weight: bold;">www.linkedin.com/in/rachelbh</a></p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Price Section -->
+  <section class="price-section">
+   <div class="container">
+    <h2>מחיר הקורס</h2>
+    <div class="price-box">
+     <div class="price">
+      ₪5,500
+     </div>
+     <p><strong>כולל מע"מ</strong></p>
+     <p>ניתן לחלק לעד 3 תשלומים ללא עמלה</p>
+     <p>או ליותר תשלומים עם תוספת עמלה</p>
+     <div style="margin-top: 30px; padding: 20px; background: #edf1f5; border-radius: 10px;">
+      <h4 style="color: #0051af; margin-bottom: 10px;">💯 שביעות רצון מובטחת</h4>
+      <p style="margin: 0; color: #0f1d2d;">אם תחליטי לפרוש אחרי המפגש הראשון - כספך יוחזר במלואו!</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Registration Form -->
+  <section class="registration-form" id="registration">
+   <div class="container">
+    <h2>רוצה לשמוע פרטים נוספים?</h2>
+    <p style="text-align:center; color:#0051af; margin-bottom:20px;">מלאי את הפרטים ונחזור אלייך לשיחת ייעוץ ידידותית 💬</p>
+    <div class="form-container">
+     <form id="registrationForm">
+      <div class="form-group"><label for="name">שם מלא *</label> <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group"><label for="email">כתובת אימייל *</label> <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group"><label for="phone">מספר טלפון *</label> <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-group"><label for="background">רקע מקצועי נוכחי *</label> <select id="background" name="background" required> <option value="">בחרי את התחום שלך</option> <option value="development">פיתוח</option> <option value="qa">QA</option> <option value="project-management">ניהול פרויקטים</option> <option value="marketing">שיווק</option> <option value="support">תמיכה</option> <option value="analytics">אנליטיקה</option> <option value="operations">אופרציה</option> <option value="sales">מכירות</option> <option value="customer-service">שירות לקוחות</option> <option value="other">אחר</option> </select>
+      </div>
+      <div class="form-group"><label for="motivation">מה מניע אותך לעבור לניהול מוצר? *</label> <textarea id="motivation" name="motivation" rows="4" required placeholder="ספרי לנו על המטרות שלך והציפיות מהקורס"></textarea>
+      </div><button type="submit" class="submit-button" id="submitBtn">אני רוצה לשמוע עוד!</button>
+      <p style="font-size:0.9rem; text-align:center; color:#555;">💡 אפשר פשוט לשאול שאלה — אין התחייבות להרשמה</p>
+      <div class="loading" id="loading">
+       <div class="spinner"></div>
+       <p>שולחת הרשמה...</p>
+      </div>
+      <div class="success-message" id="successMessage">
+       <h3>🎉 תודה! שמחנו לקבל את הפרטים שלך 💙</h3>
+       <p>נחזור אלייך בקרוב לשיחת היכרות קצרה ונענה על כל שאלה על הקורס.<br>
+        אפשר כבר להכין שאלות 😊</p>
+      </div>
+      <div class="error-message" id="errorMessage">
+       <p>משהו השתבש בשליחה 😅 אפשר לנסות שוב או לפנות ישירות אלינו.</p>
+      </div>
+     </form>
+    </div>
+   </div>
+  </section><!-- Contact Info -->
+  <section style="background: #edf1f5; padding: 40px 0; text-align: center;">
+   <div class="container">
+    <p id="contact-info" style="color: #0f1d2d; font-size: 1.2rem; font-weight: 600;">Rachel Frenkel BenHanoch | 🌐 <a href="https://pmpro.co.il" target="_blank" rel="noopener noreferrer" style="color: #0051af; text-decoration: none; font-weight: bold;">PMpro.co.il</a> | 🔗 <a href="https://linkedin.com/in/rachelbh" target="_blank" rel="noopener noreferrer" style="color: #0051af; text-decoration: none; font-weight: bold;">linkedin.com/in/rachelbh</a> | 📞 <a href="tel:054-9222-181" style="color: #0051af; text-decoration: none; font-weight: bold;">054-9222-181</a></p>
+   </div>
+  </section>
+  <script>
+        let currentRecordCount = 0;
+        
+        const defaultConfig = {
+            main_title: "קורס ניהול מוצר בשילוב AI",
+            subtitle: "הקורס המקיף והמעשי ביותר לנשות הייטק חרדיות שרוצות להתקדם לניהול מוצר",
+            cta_button: "בדקי התאמה לקורס",
+            instructor_name: "רחל פרנקל בן-חנוך",
+            contact_info: "Rachel Frenkel BenHanoch | 🌐 PMpro.co.il | 🔗 linkedin.com/in/rachelbh | 📞 054-9222-181",
+            primary_color: "#0051af",
+            secondary_color: "#2cb3c6",
+            background_color: "#0f1d2d",
+            accent_color: "#2174ea",
+            text_color: "#edf1f5"
+        };
+
+        const dataHandler = {
+            onDataChanged(data) {
+                currentRecordCount = data.length;
+                console.log(`Current registrations: ${currentRecordCount}`);
+            }
+        };
+
+        async function render(config) {
+            const mainTitle = config.main_title || defaultConfig.main_title;
+            const subtitle = config.subtitle || defaultConfig.subtitle;
+            const ctaButton = config.cta_button || defaultConfig.cta_button;
+            const instructorName = config.instructor_name || defaultConfig.instructor_name;
+            const contactInfo = config.contact_info || defaultConfig.contact_info;
+            
+            document.getElementById('main-title').textContent = mainTitle;
+            document.getElementById('subtitle').textContent = subtitle;
+            document.getElementById('cta-button').textContent = ctaButton;
+            document.getElementById('instructor-name').textContent = instructorName;
+            document.getElementById('contact-info').textContent = contactInfo;
+
+            // Apply colors
+            const primaryColor = config.primary_color || defaultConfig.primary_color;
+            const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            
+            document.documentElement.style.setProperty('--primary-color', primaryColor);
+            document.documentElement.style.setProperty('--secondary-color', secondaryColor);
+            document.documentElement.style.setProperty('--background-color', backgroundColor);
+        }
+
+        const capabilities = {
+            recolorables: [
+                {
+                    get: () => window.elementSdk?.config?.primary_color || defaultConfig.primary_color,
+                    set: (value) => {
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ primary_color: value });
+                        }
+                    }
+                },
+                {
+                    get: () => window.elementSdk?.config?.secondary_color || defaultConfig.secondary_color,
+                    set: (value) => {
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ secondary_color: value });
+                        }
+                    }
+                },
+                {
+                    get: () => window.elementSdk?.config?.background_color || defaultConfig.background_color,
+                    set: (value) => {
+                        if (window.elementSdk) {
+                            window.elementSdk.setConfig({ background_color: value });
+                        }
+                    }
+                }
+            ],
+            borderables: [],
+            fontEditable: undefined,
+            fontSizeable: undefined
+        };
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["main_title", config.main_title || defaultConfig.main_title],
+                ["subtitle", config.subtitle || defaultConfig.subtitle],
+                ["cta_button", config.cta_button || defaultConfig.cta_button],
+                ["instructor_name", config.instructor_name || defaultConfig.instructor_name],
+                ["contact_info", config.contact_info || defaultConfig.contact_info]
+            ]);
+        }
+
+        async function initializeApp() {
+            // Initialize Data SDK
+            if (window.dataSdk) {
+                const initResult = await window.dataSdk.init(dataHandler);
+                if (!initResult.isOk) {
+                    console.error("Failed to initialize data SDK");
+                }
+            }
+
+            // Initialize Element SDK
+            if (window.elementSdk) {
+                window.elementSdk.init({
+                    defaultConfig,
+                    render,
+                    mapToCapabilities: () => capabilities,
+                    mapToEditPanelValues
+                });
+            }
+
+            // Initial render
+            await render(defaultConfig);
+            
+            // Setup form handler
+            setupFormHandler();
+        }
+
+        function setupFormHandler() {
+            const form = document.getElementById('registrationForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const loading = document.getElementById('loading');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Check data limit
+                if (currentRecordCount >= 999) {
+                    errorMessage.textContent = 'מספר ההרשמות הגיע למקסימום. אנא צרי קשר ישירות.';
+                    errorMessage.style.display = 'block';
+                    return;
+                }
+
+                // Show loading state
+                submitBtn.disabled = true;
+                loading.style.display = 'block';
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                // Collect form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    background: document.getElementById('background').value,
+                    motivation: document.getElementById('motivation').value,
+                    submitted_at: new Date().toISOString()
+                };
+
+                // Submit to Data SDK
+                if (window.dataSdk) {
+                    const result = await window.dataSdk.create(formData);
+                    
+                    if (result.isOk) {
+                        successMessage.style.display = 'block';
+                        form.reset();
+                    } else {
+                        errorMessage.style.display = 'block';
+                    }
+                } else {
+                    errorMessage.style.display = 'block';
+                }
+
+                // Hide loading state
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98f8d8b2611c1833',t:'MTc2MDYzMTIzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
