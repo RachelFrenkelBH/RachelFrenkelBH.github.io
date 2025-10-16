@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>קורס ניהול מוצר בשילוב AI - רחל פרנקל</title>
-  <script src="/_sdk/data_sdk.js"></script>
-  <script src="/_sdk/element_sdk.js"></script>
   <style>
         body {
             box-sizing: border-box;
@@ -805,7 +803,6 @@
         }
     </style>
   <style>@view-transition { navigation: auto; }</style>
-  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
  </head>
  <body><!-- Hero Section -->
   <section class="hero">
@@ -968,175 +965,5 @@
     <p id="contact-info" style="color: #0f1d2d; font-size: 1.2rem; font-weight: 600;">Rachel Frenkel BenHanoch | 🌐 <a href="https://pmpro.co.il" target="_blank" rel="noopener noreferrer" style="color: #0051af; text-decoration: none; font-weight: bold;">PMpro.co.il</a> | 🔗 <a href="https://linkedin.com/in/rachelbh" target="_blank" rel="noopener noreferrer" style="color: #0051af; text-decoration: none; font-weight: bold;">linkedin.com/in/rachelbh</a> | 📞 <a href="tel:054-9222-181" style="color: #0051af; text-decoration: none; font-weight: bold;">054-9222-181</a></p>
    </div>
   </section>
-  <script>
-        let currentRecordCount = 0;
-        
-        const defaultConfig = {
-            main_title: "קורס ניהול מוצר בשילוב AI",
-            subtitle: "הקורס המקיף והמעשי ביותר לנשות הייטק חרדיות שרוצות להתקדם לניהול מוצר",
-            cta_button: "בדקי התאמה לקורס",
-            instructor_name: "רחל פרנקל בן-חנוך",
-            contact_info: "Rachel Frenkel BenHanoch | 🌐 PMpro.co.il | 🔗 linkedin.com/in/rachelbh | 📞 054-9222-181",
-            primary_color: "#0051af",
-            secondary_color: "#2cb3c6",
-            background_color: "#0f1d2d",
-            accent_color: "#2174ea",
-            text_color: "#edf1f5"
-        };
-
-        const dataHandler = {
-            onDataChanged(data) {
-                currentRecordCount = data.length;
-                console.log(`Current registrations: ${currentRecordCount}`);
-            }
-        };
-
-        async function render(config) {
-            const mainTitle = config.main_title || defaultConfig.main_title;
-            const subtitle = config.subtitle || defaultConfig.subtitle;
-            const ctaButton = config.cta_button || defaultConfig.cta_button;
-            const instructorName = config.instructor_name || defaultConfig.instructor_name;
-            const contactInfo = config.contact_info || defaultConfig.contact_info;
-            
-            document.getElementById('main-title').textContent = mainTitle;
-            document.getElementById('subtitle').textContent = subtitle;
-            document.getElementById('cta-button').textContent = ctaButton;
-            document.getElementById('instructor-name').textContent = instructorName;
-            document.getElementById('contact-info').textContent = contactInfo;
-
-            // Apply colors
-            const primaryColor = config.primary_color || defaultConfig.primary_color;
-            const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
-            const backgroundColor = config.background_color || defaultConfig.background_color;
-            
-            document.documentElement.style.setProperty('--primary-color', primaryColor);
-            document.documentElement.style.setProperty('--secondary-color', secondaryColor);
-            document.documentElement.style.setProperty('--background-color', backgroundColor);
-        }
-
-        const capabilities = {
-            recolorables: [
-                {
-                    get: () => window.elementSdk?.config?.primary_color || defaultConfig.primary_color,
-                    set: (value) => {
-                        if (window.elementSdk) {
-                            window.elementSdk.setConfig({ primary_color: value });
-                        }
-                    }
-                },
-                {
-                    get: () => window.elementSdk?.config?.secondary_color || defaultConfig.secondary_color,
-                    set: (value) => {
-                        if (window.elementSdk) {
-                            window.elementSdk.setConfig({ secondary_color: value });
-                        }
-                    }
-                },
-                {
-                    get: () => window.elementSdk?.config?.background_color || defaultConfig.background_color,
-                    set: (value) => {
-                        if (window.elementSdk) {
-                            window.elementSdk.setConfig({ background_color: value });
-                        }
-                    }
-                }
-            ],
-            borderables: [],
-            fontEditable: undefined,
-            fontSizeable: undefined
-        };
-
-        function mapToEditPanelValues(config) {
-            return new Map([
-                ["main_title", config.main_title || defaultConfig.main_title],
-                ["subtitle", config.subtitle || defaultConfig.subtitle],
-                ["cta_button", config.cta_button || defaultConfig.cta_button],
-                ["instructor_name", config.instructor_name || defaultConfig.instructor_name],
-                ["contact_info", config.contact_info || defaultConfig.contact_info]
-            ]);
-        }
-
-        async function initializeApp() {
-            // Initialize Data SDK
-            if (window.dataSdk) {
-                const initResult = await window.dataSdk.init(dataHandler);
-                if (!initResult.isOk) {
-                    console.error("Failed to initialize data SDK");
-                }
-            }
-
-            // Initialize Element SDK
-            if (window.elementSdk) {
-                window.elementSdk.init({
-                    defaultConfig,
-                    render,
-                    mapToCapabilities: () => capabilities,
-                    mapToEditPanelValues
-                });
-            }
-
-            // Initial render
-            await render(defaultConfig);
-            
-            // Setup form handler
-            setupFormHandler();
-        }
-
-        function setupFormHandler() {
-            const form = document.getElementById('registrationForm');
-            const submitBtn = document.getElementById('submitBtn');
-            const loading = document.getElementById('loading');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
-
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                // Check data limit
-                if (currentRecordCount >= 999) {
-                    errorMessage.textContent = 'מספר ההרשמות הגיע למקסימום. אנא צרי קשר ישירות.';
-                    errorMessage.style.display = 'block';
-                    return;
-                }
-
-                // Show loading state
-                submitBtn.disabled = true;
-                loading.style.display = 'block';
-                successMessage.style.display = 'none';
-                errorMessage.style.display = 'none';
-
-                // Collect form data
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value,
-                    background: document.getElementById('background').value,
-                    motivation: document.getElementById('motivation').value,
-                    submitted_at: new Date().toISOString()
-                };
-
-                // Submit to Data SDK
-                if (window.dataSdk) {
-                    const result = await window.dataSdk.create(formData);
-                    
-                    if (result.isOk) {
-                        successMessage.style.display = 'block';
-                        form.reset();
-                    } else {
-                        errorMessage.style.display = 'block';
-                    }
-                } else {
-                    errorMessage.style.display = 'block';
-                }
-
-                // Hide loading state
-                loading.style.display = 'none';
-                submitBtn.disabled = false;
-            });
-        }
-
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', initializeApp);
-    </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98f8d8b2611c1833',t:'MTc2MDYzMTIzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
